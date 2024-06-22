@@ -13,17 +13,20 @@ export const blogRouter = new Hono<{
 blogRouter.use("/*", async (c, next) => {
   const header = c.req.header("Authorization");
   const token = header?.split(" ")[1] || "";
-  const response = await verify(token, c.env.JWT_SECRET);
-  if (response.id) {
-    c.set("jwtPayload", response.id);
-    await next();
-  } else {
+  try {
+    const response = await verify(token, c.env.JWT_SECRET);
+    if (response.id) {
+      c.set("jwtPayload", response.id);
+      await next();
+    } else {
+      c.status(403);
+      return c.json({ error: "You are not logged in" });
+    }
+  } catch (error) {
     c.status(403);
-    return c.json({ error: "Unauthorized" });
+    return c.json({ error: "You are not logged in" });
   }
 });
-
-
 
 //pagination
 blogRouter.get("/all", async (c) => {
@@ -49,7 +52,6 @@ blogRouter.get("/all", async (c) => {
     });
   }
 });
-
 
 blogRouter.post("/", async (c) => {
   const body = await c.req.json();
