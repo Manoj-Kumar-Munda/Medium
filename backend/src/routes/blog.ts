@@ -31,19 +31,65 @@ blogRouter.post("/", async (c) => {
 
   const payload = c.get("jwtPayload");
 
-  const blog = await prisma.post.create({
-    data: {
-      title: body?.title,
-      content: body?.content,
-      authorId: payload
-    },
-  });
-  
-  return c.json(blog);
+  try {
+    const blog = await prisma.post.create({
+      data: {
+        title: body?.title,
+        content: body?.content,
+        authorId: payload,
+      },
+    });
+
+    return c.json(blog);
+  } catch (error) {
+    c.status(500);
+    return c.json({
+      message: "Error while creating blog",
+    });
+  }
 });
-blogRouter.put("/", (c) => {
-  return c.text("Hello Hono");
+blogRouter.put("/", async (c) => {
+  const body = await c.req.json();
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  try {
+    const updatedBlog = await prisma.post.update({
+      where: {
+        id: body.id,
+      },
+      data: {
+        title: body?.title,
+        content: body?.content,
+      },
+    });
+    return c.json(updatedBlog);
+  } catch (error) {
+    c.status(500);
+    return c.json({
+      message: "Error while fetching data",
+    });
+  }
 });
-blogRouter.get("/:id", (c) => {
-  return c.text("Hello Hono");
+blogRouter.get("/:id", async (c) => {
+  const id = c.req.param("id");
+
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  try {
+    const blog = await prisma.post.findFirst({
+      where: {
+        id,
+      },
+    });
+    return c.json(blog);
+  } catch (error) {
+    c.status(500);
+    return c.json({
+      message: "Error while fetching data",
+    });
+  }
 });
