@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Quote from "../components/Quote";
+import Form from "../components/Form";
 
 const Signin = () => {
   return (
-    <div>Signin</div>
-  )
-}
+    <div className="h-screen flex">
+      <Form type={"signin"} />
+      <Quote />
+    </div>
+  );
+};
 
-export default Signin
+export default Signin;

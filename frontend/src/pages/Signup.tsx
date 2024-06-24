@@ -1,11 +1,11 @@
 import React from "react";
-import SignupForm from "../components/SignupForm";
 import Quote from "../components/Quote";
+import Form from "../components/Form";
 
 const Signup = () => {
   return (
-    <div className="h-screen flex flex-wrap">
-      <SignupForm />
+    <div className="h-screen flex">
+      <Form type={"signup"} />
       <Quote />
     </div>
   );

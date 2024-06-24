@@ -2,9 +2,9 @@ import React from "react";
 
 const Quote = () => {
   return (
-    <div className="grow basis-96 bg-gray-200 w-full ">
+    <div className="hidden md:block grow basis-1/2 bg-gray-200 w-full ">
       <div className="h-full  grid place-content-center w-full">
-        <div className="px-4">
+        <div className="px-4 max-w-lg">
           <q className="text-3xl font-bold">
             The customer service I received was exceptional. The support team
             went above and beuond to address my concerns.
