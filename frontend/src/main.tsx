@@ -7,6 +7,7 @@ import Home from './pages/Home.tsx';
 import AuthLayout from './components/AuthLayout.tsx';
 import Signup from './pages/Signup.tsx';
 import Signin from './pages/Signin.tsx';
+import Blog from './pages/Blog.tsx';
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
           }
         ]
       },
+      {
+        path:"/blogs",
+        element: <Blog />
+      }
     ],
   },
 ]);
