@@ -9,7 +9,7 @@ const Signin = () => {
     password: "",
   });
   return (
-    <div className="h-screen flex">
+
       <div className="grow basis-1/2 w-full">
         <div className="flex flex-col justify-center items-center h-full border border-white px-2 ">
           <div className="max-w-lg w-full">
@@ -38,7 +38,7 @@ const Signin = () => {
           </div>
         </div>
       </div>
-    </div>
+  
   );
 };
 
