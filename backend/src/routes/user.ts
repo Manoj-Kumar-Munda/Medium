@@ -18,8 +18,10 @@ userRouter.post("/signup", async (c) => {
 
   const body = await c.req.json();
 
-  const success = signupInput.safeParse(body);
+  const { success } = signupInput.safeParse(body);
+
   console.log(success);
+  
   if (!success) {
     c.status(400);
     return c.json({ message: "Invalid inputs" });
@@ -34,9 +36,10 @@ userRouter.post("/signup", async (c) => {
       },
     });
 
-    console.log(user);
+    const jwt = await sign({ id: user?.id }, c.env.JWT_SECRET);
 
-    const jwt = sign({ id: user?.id }, c.env.JWT_SECRET);
+    console.log(jwt);
+    
 
     return c.json({ token: jwt });
   } catch (e) {
