@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, forwardRef, useId } from "react";
+import { ChangeEventHandler, forwardRef, useId } from "react";
 
 interface InputProps {
   label: string;
@@ -8,7 +8,7 @@ interface InputProps {
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-const Input = React.forwardRef(function Input(
+const Input = forwardRef(function Input(
   { label, type = "text", className = "", onChange, ...props }: InputProps,
   ref
 ) {
