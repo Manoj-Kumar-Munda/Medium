@@ -1,9 +1,4 @@
-import {
-  ChangeEventHandler,
-  FormEvent,
-  FormEventHandler,
-  useState,
-} from "react";
+import { FormEvent, useState } from "react";
 import { SignupInput } from "@manojk999/medium-common";
 import AuthHeader from "../components/AuthHeader";
 import Input from "../components/Input";
@@ -23,11 +18,12 @@ const Signup = () => {
     try {
       const res = await axios.post("/api/v1/user/signup", signupData);
       console.log(res);
-      const jwt = res.data;
-      localStorage.setItem("token", jwt);
+      const jwt = res.data.token;
+
+      localStorage.setItem("accessToken", jwt);
       navigate("/blogs");
     } catch (error) {
-      console.log(error);
+      alert("Error while signing up");
     }
   };
 
