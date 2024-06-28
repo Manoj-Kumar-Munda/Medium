@@ -1,26 +1,33 @@
 import BlogCardFooter from "./BlogCardFooter";
-import blog1 from "/blog-1.webp";
-const BlogCard = () => {
+import { BlogCardHeader } from "./BlogCardHeader";
+
+interface BlogCardProps {
+  authorName: string;
+  title: string;
+  content: string;
+  publishedDate: string;
+}
+
+const BlogCard = ({
+  authorName,
+  title,
+  content,
+  publishedDate,
+}: BlogCardProps) => {
   return (
-    <div className="space-y-3">
-      <p className="text-sm text-gray-600">Tari Ibaba</p>
-
-      <div className="flex justify-between gap-4">
+    <div className="space-y-3 px-2 border-b">
+      <BlogCardHeader authorName={authorName} />
+      <div>
         <div>
-          <h2 className="text-2xl font-bold">
-            5 new amazing Javascript features in ES15(2024) features
-          </h2>
-          <p className=" text-gray-500">
-            5 juicy ES15 features with new functionality for cleaner and shorted
-            javascript code in 2024.
-          </p>
+          <h2 className="text-2xl font-bold">{title}</h2>
+          <p className=" text-gray-500 line-clamp-2 text-sm">{content}</p>
 
-          <BlogCardFooter />
+          <BlogCardFooter publishedDate={publishedDate} />
         </div>
 
-        <div className="self-start basis-32">
+        {/* <div className="self-start basis-32">
           <img src={blog1} alt="blog" className="aspect-video w-full" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

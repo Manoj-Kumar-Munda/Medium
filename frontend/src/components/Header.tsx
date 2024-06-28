@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Avatar } from "./BlogCardHeader";
 
 const Header = () => {
   const location = useLocation();
@@ -27,24 +28,31 @@ const Header = () => {
       <div className="flex justify-between items-center">
         <h1 className="font-bold text-3xl font-hero">Medium</h1>
 
-        <ul className="flex gap-6 items-center">
+        <ul className="flex gap-4 items-center">
           {isLoggedIn ? (
-            <li>
-              <button onClick={logoutHandler}>Sign out</button>
-            </li>
+            <>
+              <li>
+                <button onClick={logoutHandler}>Sign out</button>
+              </li>
+              <li>
+                <Avatar authorName="Wu Sheng" size={10} fontSize="lg" />
+              </li>
+            </>
           ) : (
-            <li>
-              <Link to={"/auth/signin"}>Sign in</Link>
-            </li>
+            <>
+              <li>
+                <Link to={"/auth/signin"}>Sign in</Link>
+              </li>
+              <li>
+                <Link
+                  to={"/auth/signup"}
+                  className="text-white bg-black px-4 py-3 rounded-2xl"
+                >
+                  Get started
+                </Link>
+              </li>
+            </>
           )}
-          <li>
-            <Link
-              to={"/auth/signup"}
-              className="text-white bg-black px-4 py-3 rounded-2xl"
-            >
-              Get started
-            </Link>
-          </li>
         </ul>
       </div>
     </div>

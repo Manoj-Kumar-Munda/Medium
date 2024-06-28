@@ -2,13 +2,18 @@ import { SlCalender } from "react-icons/sl";
 import { FaHandsClapping } from "react-icons/fa6";
 import { FaComment, FaSave } from "react-icons/fa";
 import { HiDotsHorizontal } from "react-icons/hi";
-const BlogCardFooter = () => {
+
+interface BlogCardFooterProps {
+  publishedDate: string;
+}
+
+const BlogCardFooter = ({ publishedDate }: BlogCardFooterProps) => {
   return (
     <div className="flex justify-between items-center my-3">
       <div className="flex items-center gap-6">
         <div className="flex gap-4 items-center">
           <SlCalender size={12} color="gray" />
-          <span className="text-sm text-gray-500">Jun 5</span>
+          <span className="text-sm text-gray-500">{publishedDate}</span>
         </div>
 
         <div className="flex gap-1 items-center">
@@ -23,8 +28,8 @@ const BlogCardFooter = () => {
       </div>
 
       <div className="flex items-center gap-4">
-          <FaSave size={14} color="gray" />
-          <HiDotsHorizontal color="gray"/>
+        <FaSave size={14} color="gray" />
+        <HiDotsHorizontal color="gray" />
       </div>
     </div>
   );

@@ -17,7 +17,6 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post("/api/v1/user/signup", signupData);
-      console.log(res);
       const jwt = res.data.token;
 
       localStorage.setItem("accessToken", jwt);
