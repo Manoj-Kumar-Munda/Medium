@@ -13,7 +13,7 @@ const Input = forwardRef(function Input(
   ref
 ) {
   const id = useId();
-  
+
   return (
     <div className="flex flex-col gap-1">
       {label && <label htmlFor="">{label}</label>}

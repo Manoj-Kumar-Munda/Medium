@@ -19,7 +19,7 @@ const Signin = () => {
       const res = await axios.post("/api/v1/user/signin", signinData);
       const jwt = res.data.token;
       localStorage.setItem("accessToken", jwt);
-      navigate("/blogs");
+      navigate("/");
     } catch (error) {
       alert("Error while signing up");
     }
