@@ -8,7 +8,11 @@ const useBlogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("/api/v1/blog/all");
+      const res = await axios.get("/api/v1/blog/all", {
+        headers: {
+            Authorization: "Bearer "+localStorage.getItem("accessToken")
+        }
+      });
       console.log(res);
       const data = res?.data?.blogs;
       setBlogs(data);
@@ -26,7 +30,7 @@ const useBlogs = () => {
   return {
     loading,
     blogs,
-    error
+    error,
   };
 };
 

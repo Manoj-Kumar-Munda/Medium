@@ -3,7 +3,6 @@ import Blogs from "../components/Blogs";
 
 const Home = () => {
   const isLoggedIn = localStorage.getItem("accessToken");
-
   if (!isLoggedIn) {
     return <Hero />;
   }
