@@ -30,18 +30,12 @@ blogRouter.use("/*", async (c, next) => {
 
 //pagination
 blogRouter.get("/all", async (c) => {
-  console.log("hello world");
-
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
 
   try {
-    console.log("hello");
-
     const blogs = await prisma.post.findMany();
-    console.log("blogs: ", blogs);
-
     return c.json({
       blogs,
     });
