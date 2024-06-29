@@ -1,9 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useBlogs = () => {
+interface Blog {
+  "content": string;
+  "title": string;
+  "id": string;
+  "author": {
+    "name": string | null;
+  }
+}
+
+export const useBlogs = () => {
   const [loading, setLoading] = useState(true);
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<Blog []>([]);
   const [error, setError] = useState<boolean | string>(false);
 
   const fetchBlogs = async () => {
@@ -34,4 +43,3 @@ const useBlogs = () => {
   };
 };
 
-export default useBlogs;

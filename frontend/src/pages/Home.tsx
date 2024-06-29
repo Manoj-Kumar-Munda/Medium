@@ -6,7 +6,6 @@ const Home = () => {
   if (!isLoggedIn) {
     return <Hero />;
   }
-  
   return (
     <Blogs />
   );

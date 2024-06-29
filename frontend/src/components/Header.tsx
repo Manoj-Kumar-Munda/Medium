@@ -35,7 +35,7 @@ const Header = () => {
                 <button onClick={logoutHandler}>Sign out</button>
               </li>
               <li>
-                <Avatar authorName="Wu Sheng" size={10} fontSize="lg" />
+                <Avatar authorName="Wu Sheng" className="w-10 h-10" />
               </li>
             </>
           ) : (

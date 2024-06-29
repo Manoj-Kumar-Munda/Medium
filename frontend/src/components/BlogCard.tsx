@@ -20,7 +20,7 @@ const BlogCard = ({
       <div>
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
-          <p className=" text-gray-500 line-clamp-2 text-sm">{content}</p>
+          <p className=" text-gray-500 line-clamp-2 text-sm my-2">{content}</p>
 
           <BlogCardFooter publishedDate={publishedDate} />
         </div>
