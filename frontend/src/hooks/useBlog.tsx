@@ -1,29 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Blog } from "./useBlogs";
 
-export interface Blog {
-  content: string;
-  title: string;
-  id: string;
-  author: {
-    name: string | null;
-  };
-}
-
-export const useBlogs = () => {
+export const useBlog = (id: string) => {
   const [loading, setLoading] = useState(true);
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blog, setBlog] = useState<Blog>();
   const [error, setError] = useState<boolean | string>(false);
 
-  const fetchBlogs = async () => {
+  const fetchBlog = async () => {
     try {
-      const res = await axios.get("/api/v1/blog/all", {
+      const res = await axios.get("/api/v1/blog/" + id, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("accessToken"),
         },
       });
-      const data = res?.data?.blogs;
-      setBlogs(data);
+      console.log(res?.data);
+      
+      const data = res?.data;
+      setBlog(data);
       setLoading(false);
       setError(false);
     } catch (error) {
@@ -33,11 +27,11 @@ export const useBlogs = () => {
   };
 
   useEffect(() => {
-    fetchBlogs();
+    fetchBlog();
   }, []);
   return {
     loading,
-    blogs,
+    blog,
     error,
   };
 };

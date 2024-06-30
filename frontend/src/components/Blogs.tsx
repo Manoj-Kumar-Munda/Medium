@@ -21,7 +21,7 @@ const Blogs = () => {
             key={item?.id}
             id={item?.id}
             title={item?.title}
-            authorName={item?.author?.name || ""}
+            authorName={item?.author?.name || "Anonymous"}
             content={item?.content}
             publishedDate="4th Jun, 2024"
           />
