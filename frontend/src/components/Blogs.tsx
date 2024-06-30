@@ -12,13 +12,14 @@ const Blogs = () => {
     return <h1>{error} </h1>;
   }
   return (
-    <div className=" max-w-screen-md w-full mx-auto px-2">
-      <h2 className="text-3xl font-bold font-hero my-6">Blogs</h2>
+    <div className=" max-w-screen-md w-full mx-auto px-2 ">
+      <h2 className="text-3xl font-bold font-hero py-6">Blogs</h2>
 
       <div className="flex flex-col gap-4">
-        {blogs.map(( item ) => (
+        {blogs.map((item) => (
           <BlogCard
             key={item?.id}
+            id={item?.id}
             title={item?.title}
             authorName={item?.author?.name || ""}
             content={item?.content}
