@@ -28,7 +28,7 @@ const Signup = () => {
 
   return (
     <div className="grow basis-1/2 w-full">
-      <div className="flex flex-col justify-center items-center h-full border border-white px-2 ">
+      <div className="relative pt-[15vh] md:pt-0 flex flex-col md:justify-center items-center h-full border border-white px-2 ">
         <div className="max-w-lg w-full">
           <AuthHeader type="signup" />
           <form className="my-4 space-y-3" onSubmit={(e) => submitHandler(e)}>
