@@ -21,14 +21,21 @@ const Blog = () => {
 
       <div className="order-1 col-span-4 lg:p-4 space-y-2">
         <h1 className="text-lg text-gray-500 font-medium">Author</h1>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 justify-start items-center">
+
           <Avatar
-            authorName={blog?.author?.name as string}
-            className="w-8 h-8"
+            authorName={blog?.author?.name || "Anonymous"}
+            className="px-4 w-8 h-8 self-start"
           />
-          <span className="font-medium text-gray-500">
-            {blog?.author?.name}
-          </span>
+          <div>
+            <span className=" text-gray-500 text-lg font-bold ">
+              {blog?.author?.name}
+            </span>
+            <p className="text-gray-600 hidden md:block">
+              Random catch phrase about the author's ability to grab the user's
+              attention
+            </p>
+          </div>
         </div>
       </div>
     </div>

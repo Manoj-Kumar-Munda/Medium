@@ -26,7 +26,9 @@ const Header = () => {
       )}
     >
       <div className="flex justify-between items-center">
-        <h1 className="font-bold text-3xl font-hero">Medium</h1>
+        <h1 className="font-bold text-3xl font-hero">
+          <Link to={"/"}>Medium</Link>
+        </h1>
 
         <ul className="flex gap-4 items-center">
           {isLoggedIn ? (

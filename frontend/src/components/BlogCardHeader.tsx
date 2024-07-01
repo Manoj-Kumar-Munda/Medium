@@ -19,7 +19,7 @@ interface AvatarProps extends BlogCardHeaderProps {
 }
 export const Avatar = ({ authorName, className }: AvatarProps) => {
   return (
-    <div className={ twMerge('overflow-hidden rounded-full bg-gray-500 border inline-flex items-center justify-center', className)}>
+    <div className={ twMerge('overflow-hidden rounded-full bg-gray-500  inline-flex items-center justify-center', className)}>
       <span className={`text-sm  font-bold text-white`}>{authorName[0]}</span>
     </div>
   );
