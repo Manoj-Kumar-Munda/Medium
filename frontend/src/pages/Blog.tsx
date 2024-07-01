@@ -28,7 +28,7 @@ const Blog = () => {
             className="px-4 w-8 h-8 self-start"
           />
           <div>
-            <span className=" text-gray-500 text-lg font-bold ">
+            <span className=" text-2xl font-extrabold ">
               {blog?.author?.name}
             </span>
             <p className="text-gray-600 hidden md:block">
