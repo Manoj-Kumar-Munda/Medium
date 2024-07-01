@@ -1,8 +1,16 @@
+import { redirect } from "react-router-dom"
 
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({children } : { children: React.ReactNode}) => {
+
+  if(!localStorage.getItem("accessToken")){
+    redirect("/");
+    return;
+  }
   return (
-    <div>ProtectedRoute</div>
+    <div>
+      {children}
+    </div>
   )
 }
 

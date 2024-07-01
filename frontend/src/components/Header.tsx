@@ -34,6 +34,9 @@ const Header = () => {
           {isLoggedIn ? (
             <>
               <li>
+                <Link to={"/new-story"}>Write</Link>
+              </li>
+              <li>
                 <button onClick={logoutHandler}>Sign out</button>
               </li>
               <li>
