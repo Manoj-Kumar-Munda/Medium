@@ -9,8 +9,6 @@ export default {
       backgroundImage: {
         "home-bg": "url(/home-bg.webp)"
       },
-      
-
       fontFamily: {
         "hero": ["Crimson Text", "serif"]
       },
